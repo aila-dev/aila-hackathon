@@ -3,7 +3,9 @@ package com.aila.ailahackathon.schedule;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.aila.ailahackathon.BaseV.BaseView;
 import com.aila.ailahackathon.R;
@@ -31,5 +33,9 @@ public class Schedule extends AppCompatActivity implements BaseView {
     @Override
     public void onAddError(String message) {
 
+    }
+    public void moveaddschedule(View view){
+        Intent in=new Intent(getBaseContext(), AddSchedule.class);
+        startActivity(in);
     }
 }

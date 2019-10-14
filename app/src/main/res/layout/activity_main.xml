@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_margin="10dp"
-            android:background="@color/colorMediumBlue"
+            android:background="@drawable/circle_button"
             android:padding="5dp"
             android:text="Parent Care"
             android:onClick="moveparentcare"
