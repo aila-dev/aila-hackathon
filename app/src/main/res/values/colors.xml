@@ -8,4 +8,6 @@
     <color name="colorSoftBlue">#00BCD4</color>
     <color name="colorMediumBlue">#03A9F4</color>
     <color name="colorBoldBlue">#2196F3</color>
+    <color name="colorTrans">#BF000000</color>
+    <color name="colorPlaceholder">#E0DFDF</color>
 </resources>

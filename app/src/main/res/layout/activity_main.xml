@@ -32,8 +32,9 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@mipmap/ic_launcher" />
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:onClick="activateaila"
+            app:srcCompat="@drawable/aila_emotion_neutral" />
     </RelativeLayout>
 </FrameLayout>
