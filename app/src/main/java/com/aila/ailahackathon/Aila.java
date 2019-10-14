@@ -136,6 +136,21 @@ public class Aila extends Service {
             public void onClick(View v) {
                 Intent in=new Intent(getBaseContext(), Schedule.class);
                 in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                if (schedule.getVisibility() == View.GONE){
+//                                collapsedView.setVisibility(View.GONE);
+//                                menuView.setVisibility(View.VISIBLE);
+                    if (visibilityMenu == 0) {
+                        schedule.setVisibility(View.VISIBLE);
+                        inspector.setVisibility(View.VISIBLE);
+                        parent.setVisibility(View.VISIBLE);
+                    }
+                    visibilityMenu++;
+                } else {
+                    schedule.setVisibility(View.GONE);
+                    inspector.setVisibility(View.GONE);
+                    parent.setVisibility(View.GONE);
+                    visibilityMenu = 0;
+                }
                 startActivity(in);
             }
         });
@@ -144,6 +159,21 @@ public class Aila extends Service {
             public void onClick(View v) {
                 Intent in=new Intent(getBaseContext(), MainTab.class);
                 in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                if (schedule.getVisibility() == View.GONE){
+//                                collapsedView.setVisibility(View.GONE);
+//                                menuView.setVisibility(View.VISIBLE);
+                    if (visibilityMenu == 0) {
+                        schedule.setVisibility(View.VISIBLE);
+                        inspector.setVisibility(View.VISIBLE);
+                        parent.setVisibility(View.VISIBLE);
+                    }
+                    visibilityMenu++;
+                } else {
+                    schedule.setVisibility(View.GONE);
+                    inspector.setVisibility(View.GONE);
+                    parent.setVisibility(View.GONE);
+                    visibilityMenu = 0;
+                }
                 startActivity(in);
             }
         });
@@ -152,6 +182,21 @@ public class Aila extends Service {
             public void onClick(View v) {
                 Intent in=new Intent(getBaseContext(), MainParentCare.class);
                 in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                if (schedule.getVisibility() == View.GONE){
+//                                collapsedView.setVisibility(View.GONE);
+//                                menuView.setVisibility(View.VISIBLE);
+                    if (visibilityMenu == 0) {
+                        schedule.setVisibility(View.VISIBLE);
+                        inspector.setVisibility(View.VISIBLE);
+                        parent.setVisibility(View.VISIBLE);
+                    }
+                    visibilityMenu++;
+                } else {
+                    schedule.setVisibility(View.GONE);
+                    inspector.setVisibility(View.GONE);
+                    parent.setVisibility(View.GONE);
+                    visibilityMenu = 0;
+                }
                 startActivity(in);
             }
         });
