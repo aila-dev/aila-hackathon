@@ -3,6 +3,7 @@ package com.aila.ailahackathon;
 import android.app.IntentService;
 import android.content.Intent;
 import android.content.Context;
+import android.view.WindowManager;
 
 /**
  * An {@link IntentService} subclass for handling asynchronous task requests in
@@ -12,17 +13,21 @@ import android.content.Context;
  * helper methods.
  */
 public class AILAFloat extends IntentService {
-    // TODO: Rename actions, choose action names that describe tasks that this
-    // IntentService can perform, e.g. ACTION_FETCH_NEW_ITEMS
-    private static final String ACTION_FOO = "com.aila.ailahackathon.action.FOO";
-    private static final String ACTION_BAZ = "com.aila.ailahackathon.action.BAZ";
 
-    // TODO: Rename parameters
-    private static final String EXTRA_PARAM1 = "com.aila.ailahackathon.extra.PARAM1";
-    private static final String EXTRA_PARAM2 = "com.aila.ailahackathon.extra.PARAM2";
+    WindowManager windowManager;
+    WindowManager.LayoutParams params;
 
     public AILAFloat() {
         super("AILAFloat");
+
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        int LAYOUT_FLAG;
+
+
     }
 
     /**
@@ -34,9 +39,9 @@ public class AILAFloat extends IntentService {
     // TODO: Customize helper method
     public static void startActionFoo(Context context, String param1, String param2) {
         Intent intent = new Intent(context, AILAFloat.class);
-        intent.setAction(ACTION_FOO);
-        intent.putExtra(EXTRA_PARAM1, param1);
-        intent.putExtra(EXTRA_PARAM2, param2);
+//        intent.setAction(ACTION_FOO);
+//        intent.putExtra(EXTRA_PARAM1, param1);
+//        intent.putExtra(EXTRA_PARAM2, param2);
         context.startService(intent);
     }
 
@@ -49,9 +54,9 @@ public class AILAFloat extends IntentService {
     // TODO: Customize helper method
     public static void startActionBaz(Context context, String param1, String param2) {
         Intent intent = new Intent(context, AILAFloat.class);
-        intent.setAction(ACTION_BAZ);
-        intent.putExtra(EXTRA_PARAM1, param1);
-        intent.putExtra(EXTRA_PARAM2, param2);
+//        intent.setAction(ACTION_BAZ);
+//        intent.putExtra(EXTRA_PARAM1, param1);
+//        intent.putExtra(EXTRA_PARAM2, param2);
         context.startService(intent);
     }
 
@@ -59,15 +64,15 @@ public class AILAFloat extends IntentService {
     protected void onHandleIntent(Intent intent) {
         if (intent != null) {
             final String action = intent.getAction();
-            if (ACTION_FOO.equals(action)) {
-                final String param1 = intent.getStringExtra(EXTRA_PARAM1);
-                final String param2 = intent.getStringExtra(EXTRA_PARAM2);
-                handleActionFoo(param1, param2);
-            } else if (ACTION_BAZ.equals(action)) {
-                final String param1 = intent.getStringExtra(EXTRA_PARAM1);
-                final String param2 = intent.getStringExtra(EXTRA_PARAM2);
-                handleActionBaz(param1, param2);
-            }
+//            if (ACTION_FOO.equals(action)) {
+//                final String param1 = intent.getStringExtra(EXTRA_PARAM1);
+//                final String param2 = intent.getStringExtra(EXTRA_PARAM2);
+//                handleActionFoo(param1, param2);
+//            } else if (ACTION_BAZ.equals(action)) {
+//                final String param1 = intent.getStringExtra(EXTRA_PARAM1);
+//                final String param2 = intent.getStringExtra(EXTRA_PARAM2);
+//                handleActionBaz(param1, param2);
+//            }
         }
     }
 
