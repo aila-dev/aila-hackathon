@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".schedule.AddSchedule"
+    android:layout_margin="20dp"
+    android:padding="5dp"
+    >
+
+    <EditText
+        android:id="@+id/judul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Judul"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/deskripsi"
+        app:layout_constraintTop_toBottomOf="@+id/judul"
+        android:hint="Deskripsi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <EditText
+        android:id="@+id/tanggal"
+        android:hint="tanggal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/get_tanggal"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/deskripsi"
+        />
+
+    <Button
+        android:id="@+id/get_tanggal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tanggal"
+        android:onClick="getTanggal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tanggal"
+        app:layout_constraintTop_toBottomOf="@id/deskripsi" />
+
+    <EditText
+        android:id="@+id/jam"
+        android:layout_width="270dp"
+        android:hint="Jam"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/get_jam"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tanggal" />
+
+    <Button
+        app:layout_constraintStart_toEndOf="@id/jam"
+        android:text="jam"
+        android:id="@+id/get_jam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/get_tanggal" />
+
+    <Button
+        android:onClick="addSchedule"
+        android:text="Simpan"
+        android:id="@+id/simpan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/jam" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

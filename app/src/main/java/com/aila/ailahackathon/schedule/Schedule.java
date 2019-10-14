@@ -22,44 +22,6 @@ public class Schedule extends AppCompatActivity implements BaseView {
         setContentView(R.layout.activity_schedule);
     }
 
-    private void addSchedule(){
-        FirebaseAuth user = FirebaseAuth.getInstance();
-        FirebaseUser firebaseUser = user.getCurrentUser();
-        Schedule schedule = new Schedule();
-        Registration
-                .userRef
-                .document(firebaseUser.getUid()).collection("schedule")
-                .add(schedule)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        documentReference.get();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                    }
-                });
-
-        Registration
-                .firebaseFirestore.collection("schedule")
-                .add(schedule)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        onAddSuccess("Berhasil");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        onAddError(e.getMessage());
-                    }
-                });
-
-    }
 
     @Override
     public void onAddSuccess(String message) {

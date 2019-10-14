@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.aila.ailahackathon">
-<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-<uses-permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW"/>
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/aila_emotion_smile"
@@ -10,9 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".schedule.AddSchedule"></activity>
+
         <service
             android:name=".Aila"
-            android:exported="false"></service>
+            android:exported="false" />
 
         <activity android:name=".auth.Registration" />
         <activity android:name=".auth.Login" />
