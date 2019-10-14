@@ -3,10 +3,9 @@ package com.aila.ailahackathon.inspector;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.media.FaceDetector;
 import android.media.ThumbnailUtils;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -20,10 +19,14 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.face.Face;
+import org.tensorflow.lite.Interpreter;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -115,8 +118,13 @@ public class FaceDetection {
             arrayImage[i] -= mean;
             arrayImage[i]  = arrayImage[i] * 1/std_adj;
         }
-        float[][] output = new float[1][512];
-
+        float[][] outputModel = new float[1][512];
+        Interpreter interpreter;
+        try {
+            float[][][][] inputModel = fourDimensionArrayConverter(arrayImage);
+            interpreter = new Interpreter(loadModelFile(context));
+        } catch (Exception e) {
+        }
 
     }
 
@@ -208,5 +216,15 @@ public class FaceDetection {
             }
         }
         return fourD;
+    }
+
+    private MappedByteBuffer loadModelFile(Context context) throws IOException {
+        String MODEL_ASSETS_PATH = "my_facenet_new.tflite";
+        AssetFileDescriptor assetFileDescriptor = context.getAssets().openFd(MODEL_ASSETS_PATH) ;
+        FileInputStream fileInputStream = new FileInputStream( assetFileDescriptor.getFileDescriptor() ) ;
+        FileChannel fileChannel = fileInputStream.getChannel() ;
+        long startoffset = assetFileDescriptor.getStartOffset() ;
+        long declaredLength = assetFileDescriptor.getDeclaredLength() ;
+        return fileChannel.map( FileChannel.MapMode.READ_ONLY , startoffset , declaredLength ) ;
     }
 }
