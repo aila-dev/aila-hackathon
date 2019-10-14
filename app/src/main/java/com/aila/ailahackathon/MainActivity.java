@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.aila.ailahackathon.inspector.Inspector;
+import com.aila.ailahackathon.schedule.AddSchedule;
 import com.aila.ailahackathon.schedule.Schedule;
 
 public class MainActivity extends AppCompatActivity {
