@@ -38,7 +38,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Schedu
         String date = simpleDateFormat.format(schedule.getWaktu().toDate());
         holder.tvJudul.setText(schedule.getJudul());
         holder.tvWaktu.setText(date);
-        holder.tvDeskripsi.setText(schedule.getIsi());
+//        holder.tvDeskripsi.setText(schedule.getIsi());
     }
 
     @Override
@@ -51,7 +51,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Schedu
         public ScheduleViewHolder(@NonNull View itemView) {
             super(itemView);
             tvJudul = itemView.findViewById(R.id.list_judul);
-            tvDeskripsi = itemView.findViewById(R.id.list_deskripsi);
+//            tvDeskripsi = itemView.findViewById(R.id.list_deskripsi);
             tvWaktu = itemView.findViewById(R.id.list_waktu);
         }
     }
