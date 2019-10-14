@@ -27,7 +27,7 @@ import com.aila.ailahackathon.schedule.Schedule;
 public class Aila extends Service {
     View floatView,mainflo;
     WindowManager windowManager;
-    ImageView schedule,inspector,aila;
+    ImageView schedule,inspector,aila,parent;
     WindowManager.LayoutParams params;
     int visibilityMenu =  0;
 
@@ -83,6 +83,7 @@ public class Aila extends Service {
         mainflo=floatView.findViewById(R.id.aila);
         schedule=floatView.findViewById(R.id.schedule);
         inspector=floatView.findViewById(R.id.inspector);
+        parent=floatView.findViewById(R.id.parent);
 
 
         floatView.findViewById(R.id.aila).setOnTouchListener(new View.OnTouchListener() {
@@ -110,11 +111,13 @@ public class Aila extends Service {
                                 if (visibilityMenu == 0) {
                                     schedule.setVisibility(View.VISIBLE);
                                     inspector.setVisibility(View.VISIBLE);
+                                    parent.setVisibility(View.VISIBLE);
                                 }
                                 visibilityMenu++;
                             } else {
                                 schedule.setVisibility(View.GONE);
                                 inspector.setVisibility(View.GONE);
+                                parent.setVisibility(View.GONE);
                                 visibilityMenu = 0;
                             }
                         }
