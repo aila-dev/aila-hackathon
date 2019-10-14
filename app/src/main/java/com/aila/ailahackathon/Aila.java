@@ -135,6 +135,7 @@ public class Aila extends Service {
             @Override
             public void onClick(View v) {
                 Intent in=new Intent(getBaseContext(), Schedule.class);
+                in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(in);
             }
         });
