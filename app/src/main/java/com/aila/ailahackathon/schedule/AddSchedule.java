@@ -4,12 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.aila.ailahackathon.BaseV.BaseView;
@@ -60,25 +62,25 @@ public class AddSchedule extends AppCompatActivity implements BaseView {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-
-                    }
-                });
-
-        Registration
-                .firebaseFirestore.collection("schedule")
-                .add(schedule)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        onAddSuccess("Berhasil");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
                         onAddError(e.getMessage());
                     }
                 });
+
+//        Registration
+//                .firebaseFirestore.collection("schedule")
+//                .add(schedule)
+//                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                    @Override
+//                    public void onSuccess(DocumentReference documentReference) {
+//                        onAddSuccess("Berhasil");
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        onAddError(e.getMessage());
+//                    }
+//                });
 
     }
 
@@ -98,11 +100,29 @@ public class AddSchedule extends AppCompatActivity implements BaseView {
         mMonth = calendar.get(Calendar.MONTH);
         mDay = calendar.get(Calendar.DAY_OF_MONTH);
 
-//        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-//            @Override
-//            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-//            }
-//        });
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                etTanggal.setText(year + "/" + (monthOfYear) + "/" + dayOfMonth);
+            }
+        },mYear,mMonth,mDay);
+
+        datePickerDialog.show();
+    }
+
+    public void getJam(View view){
+        final Calendar calendar = Calendar.getInstance();
+        mHour = calendar.get(Calendar.HOUR_OF_DAY);
+        mMinute = calendar.get(Calendar.MINUTE);
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                etJam.setText(hourOfDay + ":" + minute);
+            }
+        },mHour,mMinute,false);
+
+        timePickerDialog.show();
     }
 
     public void test(int message){
