@@ -5,29 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".auth.Registration">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="228dp"
-            android:layout_marginEnd="-2dp"
-            android:gravity="center"
-            android:paddingBottom="20dp"
-            android:text="Registration"
-            android:textColor="@color/colorMediumBlue"
-            android:textSize="24sp" />
-    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -40,32 +17,51 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Registration"
+                    android:textColor="@color/colorMediumBlue"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
             <EditText
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:textColorHint="@color/colorPlaceholder"
                 android:hint="Username"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColorHighlight="@color/colorMediumBlue"
+                android:textColorHint="@color/colorBoldBlue" />
 
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:textColorHint="@color/colorPlaceholder"
                 android:hint="E-Mail"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColorHighlight="@color/colorMediumBlue"
+                android:textColorHint="@color/colorSoftBlue" />
 
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:textColorHint="@color/colorPlaceholder"
                 android:hint="Password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColorHighlight="@color/colorMediumBlue"
+                android:textColorHint="@color/colorSoftBlue" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -78,12 +74,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="20dp"
-                    android:background="@color/colorMediumBlue"
+                    android:background="@drawable/circle_button"
                     android:padding="5dp"
-                    android:text="Regstration"
+                    android:text="Registration"
                     android:textColor="@color/colorWhite" />
             </LinearLayout>
 
         </LinearLayout>
+
     </RelativeLayout>
 </FrameLayout>
