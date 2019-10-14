@@ -36,7 +36,7 @@ public class Login extends AppCompatActivity implements BaseView {
         super.onStart();
     }
 
-    private void doLogin(){
+    public void doLogin(View view){
         String email = etEmail.getText().toString();
         String password = etPassword.getText().toString();
 
