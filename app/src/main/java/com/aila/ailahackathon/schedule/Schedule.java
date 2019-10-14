@@ -1,6 +1,7 @@
 package com.aila.ailahackathon.schedule;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,8 +23,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -67,20 +71,24 @@ public class Schedule extends AppCompatActivity implements BaseView {
         Registration.userRef
                 .document("bD017zDCRfRpBVq0ec2PbA6QgsX2")
                 .collection("schedule")
-                .get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        for(QueryDocumentSnapshot queryDocumentSnapshot : queryDocumentSnapshots){
-                            DocumentSnapshot documentSnapshot = queryDocumentSnapshot;
-                            ScheduleModel scheduleModel = documentSnapshot.toObject(ScheduleModel.class);
-                            listSchedule.add(scheduleModel);
+                    public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            Log.w("TAG", "listen:error", e);
+                            return;
                         }
-                        scheduleAdapter = new ScheduleAdapter(listSchedule);
-                        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-                        recyclerView.setLayoutManager(mLayoutManager);
-                        recyclerView.setItemAnimator(new DefaultItemAnimator());
-                        recyclerView.setAdapter(scheduleAdapter);
+
+                        for(DocumentChange dc : queryDocumentSnapshots.getDocumentChanges()){
+                            ScheduleModel scheduleModel = dc.getDocument().toObject(ScheduleModel.class);
+                            listSchedule.add(scheduleModel);
+                            scheduleAdapter = new ScheduleAdapter(listSchedule);
+                            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+                            recyclerView.setLayoutManager(mLayoutManager);
+                            recyclerView.setItemAnimator(new DefaultItemAnimator());
+                            recyclerView.setAdapter(scheduleAdapter);
+                        }
+
                     }
                 });
     }

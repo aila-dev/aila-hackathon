@@ -1,5 +1,6 @@
 package com.aila.ailahackathon.fragment;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -10,18 +11,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.aila.ailahackathon.R;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import lecho.lib.hellocharts.model.PieChartData;
-import lecho.lib.hellocharts.model.SliceValue;
-import lecho.lib.hellocharts.view.PieChartView;
-
 
 public class TabOne extends Fragment {
-    PieChartView pieChartView;
-    List<SliceValue> pieData = new ArrayList<>();
+    PieChart pieChartView;
+    List<PieEntry> pieData = new ArrayList<>();
 
     public TabOne(){
 
@@ -29,14 +30,16 @@ public class TabOne extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_fragment_one, container, false);
-        pieChartView= view.findViewById(R.id.chart);
-        pieData.add(new SliceValue(15, Color.BLUE).setLabel("Makan"));
-        pieData.add(new SliceValue(25, Color.GREEN).setLabel("Tidur"));
-        pieData.add(new SliceValue(10, Color.RED).setLabel("Minum"));
-        pieData.add(new SliceValue(60, Color.YELLOW).setLabel("Mata"));
-        PieChartData pieChartData = new PieChartData(pieData);
-        pieChartData.setHasLabels(true);
-        pieChartView.setPieChartData(pieChartData);
+        pieChartView = view.findViewById(R.id.chart);
+        pieData.add(new PieEntry(100, "Makan"));
+        pieData.add(new PieEntry(100, "Tidur"));
+        pieData.add(new PieEntry(100, "Minum"));
+        pieData.add(new PieEntry(70, "Mata"));
+        PieDataSet pieChartData = new PieDataSet(pieData,"Poin");
+        pieChartData.setColors(new int[]{R.color.colorBoldBlue,R.color.colorGreen,R.color.colorYellow,R.color.colorOrange,R.color.colorMagenta}, getContext());
+        PieData data=new PieData(pieChartData);
+        pieChartView.setData(data);
+        pieChartView.invalidate();
         return view;
 
     }
