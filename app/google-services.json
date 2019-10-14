@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "482257048867",
+    "firebase_url": "https://aila-hackathon.firebaseio.com",
+    "project_id": "aila-hackathon",
+    "storage_bucket": "aila-hackathon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482257048867:android:0f893519a021518a86e896",
+        "android_client_info": {
+          "package_name": "com.aila.ailahackathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482257048867-ot6icja0h933vhgqcm3hjkn4cd4rijd7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aila.ailahackathon",
+            "certificate_hash": "aa0fe5519a2e91e3f4e76a3c5a2e56f40ad15470"
+          }
+        },
+        {
+          "client_id": "482257048867-9vepf5kij7oa33uv069vl4oajkgmpmar.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBR4NsN6tgS6liWRfwjlF4IE1EbNm2j4zM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482257048867-9vepf5kij7oa33uv069vl4oajkgmpmar.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
