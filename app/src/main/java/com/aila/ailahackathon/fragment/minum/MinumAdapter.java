@@ -17,6 +17,7 @@ import java.util.List;
 
 public class MinumAdapter extends RecyclerView.Adapter<MinumAdapter.MinumViewHolder> {
     private List<MinumModel> listMinum;
+
     public MinumAdapter(List<MinumModel> list){
         listMinum = list;
     }
@@ -25,9 +26,9 @@ public class MinumAdapter extends RecyclerView.Adapter<MinumAdapter.MinumViewHol
         private TextView tvJudul,tvDeskripsi,tvWaktu;
         public MinumViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvJudul = itemView.findViewById(R.id.list_judul);
+//            tvJudul = itemView.findViewById(R.id.list_judul);
 //            tvDeskripsi = itemView.findViewById(R.id.list_deskripsi);
-            tvWaktu = itemView.findViewById(R.id.list_waktu);
+//            tvWaktu = itemView.findViewById(R.id.list_waktu);
         }
     }
 
@@ -47,6 +48,6 @@ public class MinumAdapter extends RecyclerView.Adapter<MinumAdapter.MinumViewHol
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listMinum.size();
     }
 }
