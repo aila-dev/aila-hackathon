@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
         app:tabTextColor="@color/colorWhite"
+        app:tabRippleColor="@color/colorPlaceholder"
         android:background="@color/colorMediumBlue"
         android:elevation="6dp"
         android:minHeight="?attr/actionBarSize"/>
