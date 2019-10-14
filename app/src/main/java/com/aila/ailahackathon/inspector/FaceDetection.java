@@ -23,6 +23,7 @@ import com.google.android.gms.vision.face.Face;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -114,7 +115,7 @@ public class FaceDetection {
             arrayImage[i] -= mean;
             arrayImage[i]  = arrayImage[i] * 1/std_adj;
         }
-//        float[] y = new float[arrayImage.length];
+        float[][] output = new float[1][512];
 
 
     }
@@ -190,5 +191,22 @@ public class FaceDetection {
             sr = (temp + (value / temp)) / 2;
         } while ((temp - sr) != 0);
         return sr;
+    }
+
+    public float[][][][] fourDimensionArrayConverter(float[] oneD) {
+        float[][][][] fourD = new float[1][160][160][3];
+        int col = 0, row = 0;
+        for (int i = 0; i < oneD.length / 3; i++) {
+            fourD[0][row][col][0] =oneD[i * 3];
+            fourD[0][row][col][1] =oneD[i * 3 + 1];
+            fourD[0][row][col][2] =oneD[i * 3 + 2];
+            if ((col + 1) % 160 == 0) {
+                col = 0;
+                row++;
+            } else {
+                col++;
+            }
+        }
+        return fourD;
     }
 }
