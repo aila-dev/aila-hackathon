@@ -1,20 +1,17 @@
 package com.aila.ailahackathon;
 
-import android.app.Activity;
 import android.app.IntentService;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.IBinder;
-import android.text.Layout;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import com.aila.ailahackathon.inspector.Inspector;
@@ -30,8 +27,7 @@ import com.aila.ailahackathon.schedule.Schedule;
 public class Aila extends Service {
     View floatView,mainflo;
     WindowManager windowManager;
-    ImageView aila;
-    ImageView schedule,inspector,parent;
+    ImageView schedule,inspector,aila,parent;
     WindowManager.LayoutParams params;
     int visibilityMenu =  0;
 
@@ -84,7 +80,6 @@ public class Aila extends Service {
 
 
         aila=floatView.findViewById(R.id.aila);
-        View main = floatView.findViewById(R.id.mainactivity);
         mainflo=floatView.findViewById(R.id.aila);
         schedule=floatView.findViewById(R.id.schedule);
         inspector=floatView.findViewById(R.id.inspector);
@@ -117,8 +112,8 @@ public class Aila extends Service {
                                     schedule.setVisibility(View.VISIBLE);
                                     inspector.setVisibility(View.VISIBLE);
                                     parent.setVisibility(View.VISIBLE);
+                                    visibilityMenu++;
                                 }
-                                visibilityMenu++;
                             } else {
                                 schedule.setVisibility(View.GONE);
                                 inspector.setVisibility(View.GONE);
@@ -139,22 +134,28 @@ public class Aila extends Service {
         schedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent in = new Intent(getBaseContext(), Schedule.class);
-                    startActivity(in);
+                Intent in=new Intent(getBaseContext(), Schedule.class);
+                in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(in);
+                if (visibilityMenu > 0) {
+                    schedule.setVisibility(View.GONE);
+                    inspector.setVisibility(View.GONE);
+                    parent.setVisibility(View.GONE);
+                    visibilityMenu = 0;
                 }
+            }
         });
         inspector.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in=new Intent(getBaseContext(), Inspector.class);
                 startActivity(in);
-            }
-        });
-        parent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in=new Intent(getBaseContext(), MainParentCare.class);
-                startActivity(in);
+                if (visibilityMenu > 0) {
+                    schedule.setVisibility(View.GONE);
+                    inspector.setVisibility(View.GONE);
+                    parent.setVisibility(View.GONE);
+                    visibilityMenu = 0;
+                }
             }
         });
     }
