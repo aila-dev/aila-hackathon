@@ -129,6 +129,10 @@ public class AddSchedule extends AppCompatActivity implements BaseView {
         timePickerDialog.show();
     }
 
+    public void moveActivity(View view) {
+        onBackPressed();
+    }
+
     public void test(int message) {
         Log.d(TAG, "test: " + message);
     }
