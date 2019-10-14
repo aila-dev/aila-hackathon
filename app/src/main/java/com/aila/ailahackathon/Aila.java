@@ -112,8 +112,8 @@ public class Aila extends Service {
                                     schedule.setVisibility(View.VISIBLE);
                                     inspector.setVisibility(View.VISIBLE);
                                     parent.setVisibility(View.VISIBLE);
+                                    visibilityMenu++;
                                 }
-                                visibilityMenu++;
                             } else {
                                 schedule.setVisibility(View.GONE);
                                 inspector.setVisibility(View.GONE);

@@ -24,6 +24,7 @@ import com.google.android.gms.vision.face.Face;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 public class FaceDetection {
@@ -103,6 +104,19 @@ public class FaceDetection {
         float[] arrayImage = getPixels(resizedImage);
         float mean = meanArray(arrayImage);
         float std = stdArray(arrayImage);
+        float std_adj;
+        if (std < 1.0 / sqrt(arrayImage.length)) {
+            std_adj = 1 / sqrt(arrayImage.length);
+        } else {
+            std_adj = std;
+        }
+        for (int i = 0; i < arrayImage.length; i++) {
+            arrayImage[i] -= mean;
+            arrayImage[i]  = arrayImage[i] * 1/std_adj;
+        }
+//        float[] y = new float[arrayImage.length];
+
+
     }
 
     public static float[] getPixels(Bitmap bitmap) {
