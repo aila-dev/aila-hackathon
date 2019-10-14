@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.aila.ailahackathon.BaseV.BaseView;
@@ -16,26 +18,34 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity implements BaseView {
+    EditText etEmail,etPassword;
+    Button btnLogin;
     FirebaseAuth auth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        etEmail = findViewById(R.id.email);
+        etPassword = findViewById(R.id.password);
+        btnLogin = findViewById(R.id.login);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 
     private void doLogin(){
-        String email = "";
-        String password = "";
+        String email = etEmail.getText().toString();
+        String password = etPassword.getText().toString();
 
         auth.signInWithEmailAndPassword(email,password)
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         FirebaseUser user = authResult.getUser();
-                        if (user.getUid() != ""){
-                            onAddSuccess("Berhasil Login");
-                        }
+                        onAddSuccess("Berhasil Login");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
