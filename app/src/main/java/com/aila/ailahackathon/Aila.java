@@ -137,6 +137,12 @@ public class Aila extends Service {
                 Intent in=new Intent(getBaseContext(), Schedule.class);
                 in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(in);
+                if (visibilityMenu > 0) {
+                    schedule.setVisibility(View.GONE);
+                    inspector.setVisibility(View.GONE);
+                    parent.setVisibility(View.GONE);
+                    visibilityMenu = 0;
+                }
             }
         });
         inspector.setOnClickListener(new View.OnClickListener() {
@@ -144,6 +150,12 @@ public class Aila extends Service {
             public void onClick(View v) {
                 Intent in=new Intent(getBaseContext(), Inspector.class);
                 startActivity(in);
+                if (visibilityMenu > 0) {
+                    schedule.setVisibility(View.GONE);
+                    inspector.setVisibility(View.GONE);
+                    parent.setVisibility(View.GONE);
+                    visibilityMenu = 0;
+                }
             }
         });
     }
