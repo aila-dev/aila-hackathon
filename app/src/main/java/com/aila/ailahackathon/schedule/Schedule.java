@@ -77,6 +77,7 @@ public class Schedule extends AppCompatActivity implements BaseView {
                             listSchedule.add(scheduleModel);
                         }
                         scheduleAdapter = new ScheduleAdapter(listSchedule);
+                        Toast.makeText(getApplicationContext()," "+scheduleAdapter.getItemCount(),Toast.LENGTH_LONG).show();
                         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
                         recyclerView.setLayoutManager(mLayoutManager);
                         recyclerView.setItemAnimator(new DefaultItemAnimator());

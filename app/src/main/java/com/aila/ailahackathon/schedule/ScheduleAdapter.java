@@ -13,7 +13,6 @@ import com.aila.ailahackathon.R;
 import com.aila.ailahackathon.model.ScheduleModel;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ScheduleViewHolder> {
