@@ -1,7 +1,6 @@
 package com.aila.ailahackathon;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import android.widget.Toolbar;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainTab extends AppCompatActivity {
-    public static RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.aila.ailahackathon.MainActivity;
 import com.aila.ailahackathon.R;
 import com.aila.ailahackathon.model.ScheduleModel;
-import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
