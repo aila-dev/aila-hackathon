@@ -11,25 +11,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".schedule.AddSchedule"></activity>
+        <activity android:name=".MainTab"></activity>
+        <activity android:name=".schedule.AddSchedule" />
 
         <service
             android:name=".Aila"
             android:exported="false" />
 
-        <activity android:name=".auth.Registration"
-            android:launchMode="singleInstance"/>
-        <activity android:name=".auth.Login"
-            android:launchMode="singleInstance"/>
-        <activity android:name=".schedule.Schedule"
-            android:launchMode="singleInstance"/>
-        <activity android:name=".parentcare.ParentCare"
-            android:launchMode="singleInstance"/>
-        <activity android:name=".inspector.Inspector"
-            android:launchMode="singleInstance"/>
-        <activity android:name=".MainParentCare"
-            android:launchMode="singleInstance"/>
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".auth.Registration"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".auth.Login"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".schedule.Schedule"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".parentcare.ParentCare"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".inspector.Inspector"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".MainParentCare"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".MainActivity"
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
