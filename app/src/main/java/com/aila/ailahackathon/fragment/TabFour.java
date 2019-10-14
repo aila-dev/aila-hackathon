@@ -33,7 +33,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class TabFour extends Fragment {
-    private List<MinumModel> listMinum = new ArrayList<>();
+    private List<MinumModel> listMinum = new ArrayList<MinumModel>();
     private RecyclerView recyclerView;
     private MinumAdapter minumAdapter;
     public TabFour() {
