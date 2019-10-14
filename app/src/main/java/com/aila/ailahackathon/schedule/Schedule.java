@@ -63,7 +63,7 @@ public class Schedule extends AppCompatActivity implements BaseView {
     public void onStart() {
         super.onStart();
         active = true;
-
+        listSchedule.clear();
         Registration.userRef
                 .document("bD017zDCRfRpBVq0ec2PbA6QgsX2")
                 .collection("schedule")
@@ -77,7 +77,6 @@ public class Schedule extends AppCompatActivity implements BaseView {
                             listSchedule.add(scheduleModel);
                         }
                         scheduleAdapter = new ScheduleAdapter(listSchedule);
-                        Toast.makeText(getApplicationContext()," "+scheduleAdapter.getItemCount(),Toast.LENGTH_LONG).show();
                         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
                         recyclerView.setLayoutManager(mLayoutManager);
                         recyclerView.setItemAnimator(new DefaultItemAnimator());
