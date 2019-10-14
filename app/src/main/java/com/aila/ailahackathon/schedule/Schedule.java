@@ -38,4 +38,17 @@ public class Schedule extends AppCompatActivity implements BaseView {
         Intent in=new Intent(getBaseContext(), AddSchedule.class);
         startActivity(in);
     }
+    static boolean active = false;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        active = true;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        active = false;
+    }
 }

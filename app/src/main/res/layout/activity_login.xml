@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="2dp"
-                android:layout_marginTop="228dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginEnd="-2dp"
                 android:gravity="center"
                 android:paddingBottom="20dp"
@@ -40,13 +40,15 @@
                 android:inputType="textPersonName"
                 android:textColor="@color/colorMediumBlue"
                 android:textColorHighlight="@color/colorMediumBlue"
-                android:textColorHint="@color/colorSoftBlue" />
+                android:textColorHint="@color/colorSoftBlue"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:textSize="14sp"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:textColor="@color/colorMediumBlue"

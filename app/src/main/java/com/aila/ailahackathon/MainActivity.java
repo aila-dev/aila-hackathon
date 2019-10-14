@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.aila.ailahackathon.auth.Login;
+import com.aila.ailahackathon.auth.Registration;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private static final int SYSTEM_ALERT_WINDOW_PERMISSION = 7;
@@ -42,10 +45,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    public void moveparentcare(View view){
-        Intent in=new Intent(getBaseContext(),MainParentCare.class);
-        startActivity(in);
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        startService(new Intent(MainActivity.this, Aila.class));
     }
+
     public void RuntimePermissionForUser() {
         Intent PermissionIntent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                 Uri.parse("package:" + getPackageName()));
