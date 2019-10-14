@@ -13,7 +13,7 @@
         android:layout_gravity="center|center_vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
@@ -23,19 +23,20 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@drawable/circle_button"
-                android:text="Login"
                 android:onClick="movelogin"
-                android:textColor="@color/colorWhite"
-                />
+                android:text="Login"
+                android:textColor="@color/colorWhite" />
 
             <Button
                 android:id="@+id/toregist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/circle_button"
-                android:padding="5dp"
                 android:onClick="moveregistration"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:text="Registration"
                 android:textColor="@color/colorWhite" />
         </LinearLayout>
