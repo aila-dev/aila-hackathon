@@ -3,7 +3,9 @@ package com.aila.ailahackathon.schedule;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.aila.ailahackathon.BaseV.BaseView;
 import com.aila.ailahackathon.R;
@@ -22,44 +24,6 @@ public class Schedule extends AppCompatActivity implements BaseView {
         setContentView(R.layout.activity_schedule);
     }
 
-    private void addSchedule(){
-        FirebaseAuth user = FirebaseAuth.getInstance();
-        FirebaseUser firebaseUser = user.getCurrentUser();
-        Schedule schedule = new Schedule();
-        Registration
-                .userRef
-                .document(firebaseUser.getUid()).collection("schedule")
-                .add(schedule)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        documentReference.get();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                    }
-                });
-
-        Registration
-                .firebaseFirestore.collection("schedule")
-                .add(schedule)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        onAddSuccess("Berhasil");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        onAddError(e.getMessage());
-                    }
-                });
-
-    }
 
     @Override
     public void onAddSuccess(String message) {
@@ -69,5 +33,9 @@ public class Schedule extends AppCompatActivity implements BaseView {
     @Override
     public void onAddError(String message) {
 
+    }
+    public void moveaddschedule(View view){
+        Intent in=new Intent(getBaseContext(), AddSchedule.class);
+        startActivity(in);
     }
 }

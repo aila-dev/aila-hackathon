@@ -6,9 +6,12 @@
 <!--        <item name="colorPrimary">@color/colorPrimary</item>-->
 <!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
 <!--        <item name="colorAccent">@color/colorAccent</item>-->
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@color/colorTrans</item>
-        <item name="android:windowNoTitle">true</item>
+<!--        <item name="android:windowIsTranslucent">true</item>-->
+<!--        <item name="android:windowBackground">@color/colorTrans</item>-->
+<!--        <item name="android:windowNoTitle">true</item>-->
+        <item name="colorControlNormal">#2196F3</item>
+        <item name="colorControlActivated">#03A9F4</item>
+        <item name="colorControlHighlight">#00BCD4</item>
     </style>
 
 </resources>

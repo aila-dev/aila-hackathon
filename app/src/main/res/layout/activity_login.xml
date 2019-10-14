@@ -8,30 +8,6 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="228dp"
-            android:layout_marginEnd="-2dp"
-            android:gravity="center"
-            android:paddingBottom="20dp"
-            android:text="Login"
-            android:textColor="@color/colorMediumBlue"
-            android:textSize="24sp" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_margin="20dp">
@@ -41,25 +17,41 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="228dp"
+                android:layout_marginEnd="-2dp"
+                android:gravity="center"
+                android:paddingBottom="20dp"
+                android:text="Login"
+                android:textColor="@color/colorMediumBlue"
+                android:textSize="24sp" />
+
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="E-Mail"
-                android:textColorHint="@color/colorPlaceholder"
+                android:inputType="textPersonName"
                 android:textColor="@color/colorMediumBlue"
-                android:inputType="textPersonName" />
+                android:textColorHighlight="@color/colorMediumBlue"
+                android:textColorHint="@color/colorSoftBlue" />
 
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:textColorHint="@color/colorPlaceholder"
-                android:textColor="@color/colorMediumBlue"
                 android:hint="Password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="@color/colorMediumBlue"
+                android:textColorHighlight="@color/colorMediumBlue"
+                android:textColorHint="@color/colorSoftBlue" />
 
             <LinearLayout
                 android:layout_width="match_parent"

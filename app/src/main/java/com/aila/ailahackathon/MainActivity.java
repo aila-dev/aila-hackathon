@@ -9,6 +9,9 @@ import android.provider.Settings;
 import android.view.View;
 import android.widget.Toast;
 
+import com.aila.ailahackathon.inspector.Inspector;
+import com.aila.ailahackathon.schedule.Schedule;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private static final int SYSTEM_ALERT_WINDOW_PERMISSION = 7;

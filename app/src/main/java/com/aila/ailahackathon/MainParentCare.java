@@ -10,7 +10,6 @@ import com.aila.ailahackathon.auth.Login;
 import com.aila.ailahackathon.auth.Registration;
 
 public class MainParentCare extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,4 +23,5 @@ public class MainParentCare extends AppCompatActivity {
         Intent in=new Intent(getBaseContext(), Registration.class);
         startActivity(in);
     }
+
 }

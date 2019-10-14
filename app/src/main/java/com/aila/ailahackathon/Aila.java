@@ -14,6 +14,9 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import com.aila.ailahackathon.inspector.Inspector;
+import com.aila.ailahackathon.schedule.Schedule;
+
 
 /**
  * An {@link IntentService} subclass for handling asynchronous task requests in
@@ -24,7 +27,7 @@ import android.widget.ImageView;
 public class Aila extends Service {
     View floatView,mainflo;
     WindowManager windowManager;
-    ImageView schedule,reminder,aerichan;
+    ImageView schedule,inspector,aila;
     WindowManager.LayoutParams params;
     int visibilityMenu =  0;
 
@@ -40,7 +43,7 @@ public class Aila extends Service {
     public void onCreate(){
         super.onCreate();
         //View yang mau ditampilkan
-        floatView= LayoutInflater.from(this).inflate(R.layout.fragment_aeri,null);
+        floatView= LayoutInflater.from(this).inflate(R.layout.fragment_aila,null);
         //konfigurasi untuk ditampilkan di window manager
         int LAYOUT_FLAG;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -76,13 +79,13 @@ public class Aila extends Service {
 //        });
 
 
-        aerichan=floatView.findViewById(R.id.aeri);
-        mainflo=floatView.findViewById(R.id.aeri);
+        aila=floatView.findViewById(R.id.aila);
+        mainflo=floatView.findViewById(R.id.aila);
         schedule=floatView.findViewById(R.id.schedule);
-        reminder=floatView.findViewById(R.id.reminder);
+        inspector=floatView.findViewById(R.id.inspector);
 
 
-        floatView.findViewById(R.id.aeri).setOnTouchListener(new View.OnTouchListener() {
+        floatView.findViewById(R.id.aila).setOnTouchListener(new View.OnTouchListener() {
             int X_Axis, Y_Axis;
             float TouchX, TouchY;
             long lastTouchDown;
@@ -106,12 +109,12 @@ public class Aila extends Service {
 //                                menuView.setVisibility(View.VISIBLE);
                                 if (visibilityMenu == 0) {
                                     schedule.setVisibility(View.VISIBLE);
-                                    reminder.setVisibility(View.VISIBLE);
+                                    inspector.setVisibility(View.VISIBLE);
                                 }
                                 visibilityMenu++;
                             } else {
                                 schedule.setVisibility(View.GONE);
-                                reminder.setVisibility(View.GONE);
+                                inspector.setVisibility(View.GONE);
                                 visibilityMenu = 0;
                             }
                         }
@@ -125,7 +128,22 @@ public class Aila extends Service {
                 return false;
             }
         });
+        schedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in=new Intent(getBaseContext(), Schedule.class);
+                startActivity(in);
+            }
+        });
+        inspector.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in=new Intent(getBaseContext(), Inspector.class);
+                startActivity(in);
+            }
+        });
     }
+
     @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
