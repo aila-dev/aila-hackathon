@@ -25,7 +25,7 @@ import com.aila.ailahackathon.schedule.Schedule;
  * TODO: Customize class - update intent actions and extra parameters.
  */
 public class Aila extends Service {
-    View floatView,mainflo;
+    View floatView,main;
     WindowManager windowManager;
     ImageView schedule,inspector,aila,parent;
     WindowManager.LayoutParams params;
@@ -80,7 +80,7 @@ public class Aila extends Service {
 
 
         aila=floatView.findViewById(R.id.aila);
-        mainflo=floatView.findViewById(R.id.aila);
+        main=floatView.findViewById(R.id.mainactivity);
         schedule=floatView.findViewById(R.id.schedule);
         inspector=floatView.findViewById(R.id.inspector);
         parent=floatView.findViewById(R.id.parent);
@@ -112,8 +112,8 @@ public class Aila extends Service {
                                     schedule.setVisibility(View.VISIBLE);
                                     inspector.setVisibility(View.VISIBLE);
                                     parent.setVisibility(View.VISIBLE);
-                                    visibilityMenu++;
                                 }
+                                visibilityMenu++;
                             } else {
                                 schedule.setVisibility(View.GONE);
                                 inspector.setVisibility(View.GONE);
@@ -137,12 +137,6 @@ public class Aila extends Service {
                 Intent in=new Intent(getBaseContext(), Schedule.class);
                 in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(in);
-                if (visibilityMenu > 0) {
-                    schedule.setVisibility(View.GONE);
-                    inspector.setVisibility(View.GONE);
-                    parent.setVisibility(View.GONE);
-                    visibilityMenu = 0;
-                }
             }
         });
         inspector.setOnClickListener(new View.OnClickListener() {
@@ -150,12 +144,13 @@ public class Aila extends Service {
             public void onClick(View v) {
                 Intent in=new Intent(getBaseContext(), Inspector.class);
                 startActivity(in);
-                if (visibilityMenu > 0) {
-                    schedule.setVisibility(View.GONE);
-                    inspector.setVisibility(View.GONE);
-                    parent.setVisibility(View.GONE);
-                    visibilityMenu = 0;
-                }
+            }
+        });
+        parent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in=new Intent(getBaseContext(), MainParentCare.class);
+                startActivity(in);
             }
         });
     }
