@@ -55,6 +55,7 @@
 
     <Button
         app:layout_constraintStart_toEndOf="@id/jam"
+        android:onClick="getJam"
         android:text="jam"
         android:id="@+id/get_jam"
         android:layout_width="wrap_content"
