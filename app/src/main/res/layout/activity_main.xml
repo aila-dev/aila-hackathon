@@ -34,7 +34,6 @@
             android:id="@+id/activeaila"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:onClick="activateaila"
             app:srcCompat="@drawable/aila_emotion_neutral" />
     </RelativeLayout>
 </FrameLayout>
