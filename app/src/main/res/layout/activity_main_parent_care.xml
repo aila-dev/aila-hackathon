@@ -24,15 +24,18 @@
                 android:background="@color/colorMediumBlue"
                 android:text="Login"
                 android:onClick="movelogin"
-                android:textColor="@color/colorWhite" />
+                android:textColor="@color/colorWhite"
+                />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:background="@color/colorMediumBlue"
-                android:textColor="@color/colorWhite"
                 android:onClick="moveregistration"
-                android:text="Registration" />
+                android:padding="5dp"
+                android:text="Registration"
+                android:textColor="@color/colorWhite" />
         </LinearLayout>
 
     </RelativeLayout>
