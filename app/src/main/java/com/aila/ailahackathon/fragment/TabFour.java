@@ -40,31 +40,32 @@ public class TabFour extends Fragment {
         // Required empty public constructor
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        Registration.userRef
-                .document("bD017zDCRfRpBVq0ec2PbA6QgsX2")
-                .collection("minum")
-                .get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        for(QueryDocumentSnapshot queryDocumentSnapshot : queryDocumentSnapshots){
-                            DocumentSnapshot documentSnapshot = queryDocumentSnapshot;
-                            MinumModel minumModel = documentSnapshot.toObject(MinumModel.class);
-                            listMinum.add(minumModel);
-                        }
-                        minumAdapter = new MinumAdapter(listMinum);
-                        recyclerView.setAdapter(minumAdapter);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
-            }
-        });
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        Registration.userRef
+//                .document("bD017zDCRfRpBVq0ec2PbA6QgsX2")
+//                .collection("minum")
+//                .get()
+//                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//                        for(QueryDocumentSnapshot queryDocumentSnapshot : queryDocumentSnapshots){
+//                            DocumentSnapshot documentSnapshot = queryDocumentSnapshot;
+//                            MinumModel minumModel = documentSnapshot.toObject(MinumModel.class);
+//                            listMinum.add(minumModel);
+//                        }
+//                        Toast.makeText(getContext(),listMinum.size(),Toast.LENGTH_LONG).show();
+////                        minumAdapter = new MinumAdapter(listMinum);
+////                        recyclerView.setAdapter(minumAdapter);
+//                    }
+//                }).addOnFailureListener(new OnFailureListener() {]
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+//            }
+//        });
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

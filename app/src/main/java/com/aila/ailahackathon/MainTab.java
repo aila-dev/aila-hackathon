@@ -3,6 +3,8 @@ package com.aila.ailahackathon;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,8 +12,12 @@ import android.widget.Toolbar;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class MainTab extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+import lecho.lib.hellocharts.model.SliceValue;
+import lecho.lib.hellocharts.view.PieChartView;
 
+public class MainTab extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
