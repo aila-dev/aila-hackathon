@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shadow"
+        android:background="@color/colorMediumBlue"
         android:orientation="horizontal"
         android:paddingTop="10dp"
         android:paddingBottom="10dp">
@@ -19,28 +19,28 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:text="Schedule"
-            android:textColor="@color/colorMediumBlue"
+            android:textColor="@color/colorWhite"
             android:textSize="24sp" />
 
         <ImageView
             android:id="@+id/search"
             android:layout_width="50dp"
-            android:layout_height="40dp"
+            android:layout_height="35dp"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/ic_menu_search" />
 
         <ImageView
             android:id="@+id/add"
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
+            android:layout_width="50dp"
+            android:layout_height="37dp"
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
             android:onClick="moveaddschedule"
-            app:srcCompat="@drawable/add" />
+            app:srcCompat="@android:drawable/ic_menu_add" />
 
     </LinearLayout>
 
