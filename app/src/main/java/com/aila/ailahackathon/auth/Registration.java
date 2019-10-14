@@ -100,4 +100,7 @@ public class Registration extends AppCompatActivity implements BaseView {
     public void onAddError(String message) {
         Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
     }
+    public void moveActivity(View view) {
+        onBackPressed();
+    }
 }
