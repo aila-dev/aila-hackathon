@@ -7,23 +7,11 @@
     tools:context=".MainActivity">
 
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right">
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_margin="10dp"
-            android:background="@drawable/circle_button"
-            android:padding="5dp"
-            android:text="Parent Care"
-            android:onClick="moveparentcare"
-            android:textColor="@color/colorWhite" />
-    </RelativeLayout>
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"/>
 
     <RelativeLayout
         android:layout_width="wrap_content"
