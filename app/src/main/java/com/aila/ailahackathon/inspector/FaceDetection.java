@@ -35,6 +35,7 @@ public class FaceDetection {
 
     public static String mCurrentPhotoPath;
     private static final String TAG = "FaceDetection";
+    private static final String TAG_ERROR_RECOGNITION = "recognition";
 
     /*public static void onImageFromCamera(View view) {
         if (ContextCompat.checkSelfPermission(this,
@@ -84,7 +85,7 @@ public class FaceDetection {
         }
     }
 
-    public void recognizeFace(Bitmap bitmap, Context context) {
+    public float[] recognizeFace(Bitmap bitmap, Context context) {
         final com.google.android.gms.vision.face.FaceDetector detector =
                 new com.google.android.gms.vision.face.FaceDetector.Builder(context)
                         .setTrackingEnabled(false)
@@ -123,9 +124,14 @@ public class FaceDetection {
         try {
             float[][][][] inputModel = fourDimensionArrayConverter(arrayImage);
             interpreter = new Interpreter(loadModelFile(context));
+            interpreter.run(inputModel, outputModel);
+            float[] embededdedFace = outputModel[0];
+            return embededdedFace;
         } catch (Exception e) {
+            Log.d(TAG_ERROR_RECOGNITION, "Embedding Failed!\n" + e.toString());
+            Toast.makeText(context, e.toString(), Toast.LENGTH_LONG);
         }
-
+        return null;
     }
 
     public static float[] getPixels(Bitmap bitmap) {
@@ -219,7 +225,7 @@ public class FaceDetection {
     }
 
     private MappedByteBuffer loadModelFile(Context context) throws IOException {
-        String MODEL_ASSETS_PATH = "my_facenet_new.tflite";
+        String MODEL_ASSETS_PATH = "facenet.tflite";
         AssetFileDescriptor assetFileDescriptor = context.getAssets().openFd(MODEL_ASSETS_PATH) ;
         FileInputStream fileInputStream = new FileInputStream( assetFileDescriptor.getFileDescriptor() ) ;
         FileChannel fileChannel = fileInputStream.getChannel() ;
