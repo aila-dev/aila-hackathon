@@ -9,8 +9,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.aila.ailahackathon.MainActivity;
 import com.aila.ailahackathon.R;
 import com.aila.ailahackathon.model.ScheduleModel;
+import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -25,6 +27,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Schedu
     @NonNull
     @Override
     public ScheduleAdapter.ScheduleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View scheduleView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.schedule_list,parent,false);
 
@@ -32,13 +35,20 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Schedu
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ScheduleAdapter.ScheduleViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ScheduleAdapter.ScheduleViewHolder holder, final int position) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
         ScheduleModel schedule = scheduleList.get(position);
         String date = simpleDateFormat.format(schedule.getWaktu().toDate());
         holder.tvJudul.setText(schedule.getJudul());
         holder.tvWaktu.setText(date);
 //        holder.tvDeskripsi.setText(schedule.getIsi());
+
+        holder.tvJudul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override

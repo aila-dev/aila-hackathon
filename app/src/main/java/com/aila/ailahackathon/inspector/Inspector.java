@@ -2,39 +2,62 @@ package com.aila.ailahackathon.inspector;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
 import android.os.Bundle;
+import android.util.ArrayMap;
 
 import com.aila.ailahackathon.R;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import lecho.lib.hellocharts.model.PieChartData;
-import lecho.lib.hellocharts.model.SliceValue;
-import lecho.lib.hellocharts.view.PieChartView;
+import java.util.Map;
 
 public class Inspector extends AppCompatActivity {
-
     private static final String TAG = "Inspector";
-    PieChartView pieChartView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inspector);
+    }
 
-        pieChartView = findViewById(R.id.pieChart);
+    public Map getTotalMinum(){
+//        Misal
+        int beratBadan = 45;
+//        inisialisasi dalam Mili Liter
+        int takaranAirMinum = 0;
+        int gelasKecil = 250;
+        int gelasBesar = 400;
 
-        List pieData = new ArrayList<>();
-        pieData.add(new SliceValue(15, Color.BLUE).setLabel("Q1: $10"));
-        pieData.add(new SliceValue(25, Color.GRAY).setLabel("Q2: $4"));
-        pieData.add(new SliceValue(10, Color.RED).setLabel("Q3: $18"));
-        pieData.add(new SliceValue(60, Color.MAGENTA).setLabel("Q4: $28"));
+        if (beratBadan >= 45){
+            takaranAirMinum = 1900;
+        }else if(beratBadan >= 50){
+            takaranAirMinum = 2100;
+        }else if(beratBadan >= 55){
+            takaranAirMinum = 2300;
+        }else if(beratBadan >= 60){
+            takaranAirMinum = 2500;
+        }else if(beratBadan >= 65){
+            takaranAirMinum = 2700;
+        }else if(beratBadan >= 70){
+            takaranAirMinum = 2900;
+        }else if(beratBadan >= 75){
+            takaranAirMinum = 3200;
+        }else if(beratBadan >= 80){
+            takaranAirMinum = 3500;
+        }else if(beratBadan >= 85){
+            takaranAirMinum = 3700;
+        }else if(beratBadan >= 90){
+            takaranAirMinum = 3900;
+        }else if(beratBadan >= 95){
+            takaranAirMinum = 4100;
+        }else if(beratBadan >= 100){
+            takaranAirMinum = 4200;
+        }
 
-        PieChartData pieChartData = new PieChartData(pieData);
-        pieChartData.setHasLabels(true).setValueLabelTextSize(14);
-        pieChartData.setHasCenterCircle(true).setCenterText1("Sales in million").setCenterText1FontSize(20).setCenterText1Color(Color.parseColor("#0097A7"));
-        pieChartView.setPieChartData(pieChartData);
+        int jumlahGelasBesar = takaranAirMinum/gelasBesar;
+        int jumlahGelasKecil = takaranAirMinum/gelasKecil;
+
+        Map<String,Object> minumPerhari = new ArrayMap<>();
+        minumPerhari.put("gelas_besar",jumlahGelasBesar);
+        minumPerhari.put("gelas_kecil",jumlahGelasKecil);
+
+        return minumPerhari;
     }
 }

@@ -142,7 +142,8 @@ public class Aila extends Service {
         inspector.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in=new Intent(getBaseContext(), Inspector.class);
+                Intent in=new Intent(getBaseContext(), MainTab.class);
+                in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(in);
             }
         });
@@ -150,6 +151,7 @@ public class Aila extends Service {
             @Override
             public void onClick(View v) {
                 Intent in=new Intent(getBaseContext(), MainParentCare.class);
+                in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(in);
             }
         });
