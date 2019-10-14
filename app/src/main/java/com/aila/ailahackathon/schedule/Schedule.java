@@ -66,11 +66,6 @@ public class Schedule extends AppCompatActivity implements BaseView {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
     public void onAddSuccess(String message) {
 
     }
