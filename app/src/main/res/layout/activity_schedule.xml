@@ -31,7 +31,7 @@
             android:layout_width="50dp"
             android:layout_height="35dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_search" />
+            app:srcCompat="@drawable/search" />
 
         <ImageView
             android:id="@+id/add"
@@ -40,7 +40,7 @@
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
             android:onClick="moveaddschedule"
-            app:srcCompat="@android:drawable/ic_menu_add" />
+            app:srcCompat="@drawable/addd" />
 
     </LinearLayout>
 
