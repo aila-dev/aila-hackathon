@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.aila.ailahackathon.BaseV.BaseView;
 import com.aila.ailahackathon.R;
@@ -34,35 +35,13 @@ public class Schedule extends AppCompatActivity implements BaseView {
     private static final String TAG = "Schedule";
     private RecyclerView recyclerView;
     private ScheduleAdapter scheduleAdapter;
-    List<ScheduleModel> listSchedule = new ArrayList<ScheduleModel>();
+    List<ScheduleModel> listSchedule = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
 
-        Registration.userRef
-                .document("bD017zDCRfRpBVq0ec2PbA6QgsX2")
-                .collection("schedule")
-                .get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    //            List<ScheduleModel> listSchedule = new ArrayList<ScheduleModel>();
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        for(QueryDocumentSnapshot queryDocumentSnapshot : queryDocumentSnapshots){
-                            DocumentSnapshot documentSnapshot = queryDocumentSnapshot;
-                            ScheduleModel scheduleModel = documentSnapshot.toObject(ScheduleModel.class);
-                            listSchedule.add(scheduleModel);
-                        }
-                    }
-                });
-
         recyclerView = findViewById(R.id.reyclerSchedule);
-
-        scheduleAdapter = new ScheduleAdapter();
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(scheduleAdapter);
     }
 
     @Override
@@ -84,6 +63,26 @@ public class Schedule extends AppCompatActivity implements BaseView {
     public void onStart() {
         super.onStart();
         active = true;
+
+        Registration.userRef
+                .document("bD017zDCRfRpBVq0ec2PbA6QgsX2")
+                .collection("schedule")
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        for(QueryDocumentSnapshot queryDocumentSnapshot : queryDocumentSnapshots){
+                            DocumentSnapshot documentSnapshot = queryDocumentSnapshot;
+                            ScheduleModel scheduleModel = documentSnapshot.toObject(ScheduleModel.class);
+                            listSchedule.add(scheduleModel);
+                        }
+                        scheduleAdapter = new ScheduleAdapter(listSchedule);
+                        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+                        recyclerView.setLayoutManager(mLayoutManager);
+                        recyclerView.setItemAnimator(new DefaultItemAnimator());
+                        recyclerView.setAdapter(scheduleAdapter);
+                    }
+                });
     }
 
     @Override
