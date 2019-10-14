@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,10 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.aila.ailahackathon.R;
 import com.aila.ailahackathon.model.ScheduleModel;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ScheduleViewHolder> {
     private List<ScheduleModel> scheduleList;
+
+    public ScheduleAdapter(List<ScheduleModel> list){
+        scheduleList = list;
+    }
+
     @NonNull
     @Override
     public ScheduleAdapter.ScheduleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -26,15 +34,17 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Schedu
 
     @Override
     public void onBindViewHolder(@NonNull ScheduleAdapter.ScheduleViewHolder holder, int position) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
         ScheduleModel schedule = scheduleList.get(position);
+        String date = simpleDateFormat.format(schedule.getWaktu().toDate());
         holder.tvJudul.setText(schedule.getJudul());
-        holder.tvWaktu.setText(schedule.getWaktu().toString());
+        holder.tvWaktu.setText(date);
         holder.tvDeskripsi.setText(schedule.getIsi());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return scheduleList.size();
     }
 
     public class ScheduleViewHolder extends RecyclerView.ViewHolder{
