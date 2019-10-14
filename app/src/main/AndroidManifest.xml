@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.aila.ailahackathon">
-<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-<uses-permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW"/>
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/aila_emotion_smile"
@@ -10,20 +11,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver android:name=".percobaan.AlarmReceiver"/>
-        <activity android:name=".percobaan.AlarmReceiver"></activity>
-        <activity android:name=".percobaan.MainAlarm" />
+        <activity android:name=".schedule.AddSchedule"></activity>
+
         <service
             android:name=".Aila"
-            android:exported="false"></service>
+            android:exported="false" />
 
-        <activity android:name=".auth.Registration" />
-        <activity android:name=".auth.Login" />
-        <activity android:name=".schedule.Schedule" />
-        <activity android:name=".parentcare.ParentCare" />
-        <activity android:name=".inspector.Inspector" />
-        <activity android:name=".MainParentCare" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".auth.Registration"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".auth.Login"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".schedule.Schedule"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".parentcare.ParentCare"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".inspector.Inspector"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".MainParentCare"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".MainActivity"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
