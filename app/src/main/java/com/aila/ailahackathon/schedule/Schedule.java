@@ -7,17 +7,14 @@ import android.os.Bundle;
 
 import com.aila.ailahackathon.BaseV.BaseView;
 import com.aila.ailahackathon.R;
+import com.aila.ailahackathon.auth.Registration;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Schedule extends AppCompatActivity implements BaseView {
-    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-    CollectionReference userRef = firebaseFirestore.collection("users");
     private static final String TAG = "Schedule";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +26,14 @@ public class Schedule extends AppCompatActivity implements BaseView {
         FirebaseAuth user = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = user.getCurrentUser();
         Schedule schedule = new Schedule();
-        userRef.document(firebaseUser.getUid()).collection("schedule")
+        Registration
+                .userRef
+                .document(firebaseUser.getUid()).collection("schedule")
                 .add(schedule)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-
+                        documentReference.get();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -44,7 +43,8 @@ public class Schedule extends AppCompatActivity implements BaseView {
                     }
                 });
 
-        firebaseFirestore.collection("schedule")
+        Registration
+                .firebaseFirestore.collection("schedule")
                 .add(schedule)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override

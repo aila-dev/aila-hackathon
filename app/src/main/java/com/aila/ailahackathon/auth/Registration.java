@@ -12,22 +12,25 @@ import android.widget.Toast;
 
 import com.aila.ailahackathon.BaseV.BaseView;
 import com.aila.ailahackathon.R;
+import com.aila.ailahackathon.schedule.Schedule;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 
 public class Registration extends AppCompatActivity implements BaseView {
+    public static FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+    public static CollectionReference userRef = firebaseFirestore.collection("users");
     private static final String TAG = "Registration";
     private static final String USER_EMAIL = "email";
     private static final String USER_USERNAME = "username";
     private static final String USER_PASSWORD = "password";
 
-    FirebaseAuth auth = FirebaseAuth.getInstance();
-    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+    public static FirebaseAuth auth = FirebaseAuth.getInstance();
 
     Button regist;
     EditText etEmail,etUsername,etPassword;
@@ -46,15 +49,6 @@ public class Registration extends AppCompatActivity implements BaseView {
     @Override
     protected void onStart() {
         super.onStart();
-        regist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()){
-                    case R.id.regist :
-                        doRegist();
-                }
-            }
-        });
     }
 
     private void doRegist(){
@@ -72,7 +66,7 @@ public class Registration extends AppCompatActivity implements BaseView {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         String uid = authResult.getUser().getUid();
-                        firebaseFirestore.collection("users")
+                        userRef
                                 .document(uid)
                                 .set(user)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
