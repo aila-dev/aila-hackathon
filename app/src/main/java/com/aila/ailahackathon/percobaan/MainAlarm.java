@@ -40,7 +40,7 @@ public class MainAlarm extends AppCompatActivity {
             Intent intent = new Intent(this, AlarmReceiver.class);
             pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
 
-            time=(calendar.getTimeInMillis()-(calendar.getTimeInMillis()%60000));
+            time = (calendar.getTimeInMillis()-(calendar.getTimeInMillis()%60000));
             Log.d("waktu", "setTime: " + time);
             if(System.currentTimeMillis()>time)
             {
