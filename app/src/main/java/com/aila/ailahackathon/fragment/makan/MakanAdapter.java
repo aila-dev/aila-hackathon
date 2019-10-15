@@ -39,8 +39,8 @@ public class MakanAdapter extends RecyclerView.Adapter<MakanAdapter.MakanViewHol
 //        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 //        String tanggal = simpleDateFormat.format(minumModel.getTanggal().toDate());
 
-        holder.tvNama.setText("Hari ini anda makan "+makanModel.getNama_makanan() + " per hari");
-        holder.tvJenis.setText("Jenis makanan yg anda makan "+makanModel.getJenis_makanan() + " per hari");
+        holder.tvNama.setText("Hari ini anda makan "+makanModel.getNama_makanan());
+        holder.tvJenis.setText("Jenis makanan yg anda makan hari ini "+makanModel.getJenis_makanan());
         holder.tvJumlahKalori.setText("Jumlah kalori yang anda dapat "+makanModel.getJumlah_kalori());
         holder.tvTanggal.setText(makanModel.getTanggal());
     }

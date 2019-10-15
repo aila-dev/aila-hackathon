@@ -31,9 +31,8 @@
                 android:id="@+id/jenis_makanan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="textEnd"
-                android:textColor="@color/colorPlaceholder"
-                android:textSize="10dp" />
+                android:textColor="@color/colorWhite"
+                android:textSize="14dp" />
 
             <TextView
                 android:id="@+id/jumlah_kalori"
