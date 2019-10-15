@@ -12,10 +12,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.aila.ailahackathon.auth.Login;
-import com.aila.ailahackathon.auth.Registration;
-import com.aila.ailahackathon.percobaan.MainVideoFaceDetection;
-
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private static final int SYSTEM_ALERT_WINDOW_PERMISSION = 7;
@@ -58,10 +54,5 @@ public class MainActivity extends AppCompatActivity {
                 Uri.parse("package:" + getPackageName()));
 
         startActivityForResult(PermissionIntent, SYSTEM_ALERT_WINDOW_PERMISSION);
-    }
-
-    public void goVideo(View view){
-        Intent intent = new Intent(getApplicationContext(), MainVideoFaceDetection.class);
-        startActivity(intent);
     }
 }

@@ -15,8 +15,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-
-import com.aila.ailahackathon.inspector.Inspector;
 import com.aila.ailahackathon.schedule.Schedule;
 
 
