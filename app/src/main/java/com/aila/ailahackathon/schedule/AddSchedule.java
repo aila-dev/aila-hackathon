@@ -3,8 +3,12 @@ package com.aila.ailahackathon.schedule;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,6 +39,7 @@ import java.util.Locale;
 public class AddSchedule extends AppCompatActivity implements BaseView {
     private static final String TAG = "AddSchedule";
     private int mYear, mMonth, mDay, mHour, mMinute;
+    final static int RQS_1 = 1;
 
     Button btGetTanggal, btGetJam, btSimpan;
     EditText etTanggal, etJam, etJudul, etDeskripsi;
@@ -66,6 +71,17 @@ public class AddSchedule extends AppCompatActivity implements BaseView {
             schedule.setIsi(deskripsi);
             schedule.setJudul(judul);
             schedule.setWaktu(timestamp);
+            Calendar calendar = Calendar.getInstance();
+            String[] tgl = etTanggal.getText().toString().split("/");
+            String[] jm = etJam.getText().toString().split(":");
+            calendar.set(
+                    Integer.parseInt(tgl[0]),
+                    Integer.parseInt(tgl[1]),
+                    Integer.parseInt(tgl[2]),
+                    Integer.parseInt(jm[0]),
+                    Integer.parseInt(jm[1]),00
+            );
+            setAlarm(calendar);
             Registration
                 .userRef
                 .document("bD017zDCRfRpBVq0ec2PbA6QgsX2").collection("schedule")
@@ -86,6 +102,14 @@ public class AddSchedule extends AppCompatActivity implements BaseView {
         } catch (ParseException e) {
             Toast.makeText(getApplicationContext(),etTanggal.getText().toString() + " " + etJam.getText().toString(),Toast.LENGTH_LONG).show();
         }
+    }
+
+    public void setAlarm(Calendar calendar){
+        Toast.makeText(getApplicationContext()," "+calendar.getTime(),Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(getBaseContext(),ScheduleBroadcastReciever.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(),RQS_1,intent,0);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pendingIntent);
     }
 
     @Override

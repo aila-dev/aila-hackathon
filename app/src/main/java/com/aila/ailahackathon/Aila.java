@@ -3,9 +3,11 @@ package com.aila.ailahackathon;
 import android.app.IntentService;
 import android.app.Service;
 import android.content.Intent;
+import android.graphics.Camera;
 import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.IBinder;
+import android.os.PowerManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -213,4 +215,13 @@ public class Aila extends Service {
         super.onDestroy();
         if (floatView != null) windowManager.removeView(floatView);
     }
+
+    public boolean isScreenOn() {
+        PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
+        boolean result = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH && powerManager.isInteractive()
+                || Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT_WATCH && powerManager.isInteractive();
+        return result;
+    }
+
+
 }
