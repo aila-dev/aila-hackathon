@@ -16,6 +16,7 @@
 
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/charttidur"
+                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_marginTop="20dp"
@@ -25,6 +26,7 @@
 
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/chartminum"
+                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_marginTop="20dp"

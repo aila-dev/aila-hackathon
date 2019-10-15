@@ -60,6 +60,7 @@ public class Login extends AppCompatActivity implements BaseView {
     @Override
     public void onAddSuccess(String message) {
         Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
+        onBackPressed();
     }
 
     @Override
