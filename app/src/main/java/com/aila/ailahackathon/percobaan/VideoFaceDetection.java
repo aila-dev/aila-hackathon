@@ -1,6 +1,8 @@
  package com.aila.ailahackathon.percobaan;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.Dialog;
@@ -21,7 +23,7 @@ import com.google.android.gms.vision.face.FaceDetector;
 
 import java.io.IOException;
 
- public class VideoFaceDetectionActivity extends AppCompatActivity {
+ public class VideoFaceDetection extends AppCompatActivity {
 
      private CameraPreview mPreview;
      private GraphicOverlay mGraphicOverlay;
@@ -49,6 +51,7 @@ import java.io.IOException;
 
      @Override
      protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+         super.onActivityResult(requestCode, resultCode, data);
          if (requestCode == REQUEST_CAMERA_PERMISSION && resultCode == RESULT_OK) {
              createCameraSource();
          }

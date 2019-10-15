@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <com.aila.ailahackathon.percobaan.GraphicOverlay
-            android:id="@+id/FaceOverlay"
+            android:id="@+id/faceOverlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
