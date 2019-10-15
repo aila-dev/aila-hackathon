@@ -3,6 +3,7 @@
     package="com.aila.ailahackathon">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainTab"></activity>
+        <activity android:name=".inspector.ActivityFaceDetection"></activity>
+        <activity android:name=".percobaan.VideoFaceDetection" />
+        <activity android:name=".percobaan.MainVideoFaceDetection" />
+        <activity android:name=".MainTab" />
         <activity android:name=".schedule.AddSchedule" />
 
         <service
@@ -45,6 +49,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".schedule.ScheduleBroadcastReciever"
+            android:process=":remote" />
     </application>
 
 </manifest>
