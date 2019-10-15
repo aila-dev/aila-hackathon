@@ -12,9 +12,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.aila.ailahackathon.auth.Login;
-import com.aila.ailahackathon.auth.Registration;
-
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private static final int SYSTEM_ALERT_WINDOW_PERMISSION = 7;

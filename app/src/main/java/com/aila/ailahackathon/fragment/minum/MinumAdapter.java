@@ -42,7 +42,7 @@ public class MinumAdapter extends RecyclerView.Adapter<MinumAdapter.MinumViewHol
         String tanggal = simpleDateFormat.format(minumModel.getTanggal().toDate());
 
         holder.tvMinumBerapa.setText("Hari ini anda minum "+minumModel.getMinum_perhari() + "/ hari");
-        holder.tvTotalMinum.setText("Anjuran AILA "+minumModel.getTotal_minum() + " / hari");
+        holder.tvTotalMinum.setText("Aila Menyarankan untuk "+minumModel.getTotal_minum() + " / hari");
         holder.tvTanggalMinum.setText(" "+tanggal);
     }
 
