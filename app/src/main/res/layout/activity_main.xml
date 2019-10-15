@@ -26,12 +26,4 @@
             app:srcCompat="@drawable/aila_emotion_neutral" />
 
     </RelativeLayout>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:text="Button"
-        android:onClick="goVideo"
-        />
 </FrameLayout>
