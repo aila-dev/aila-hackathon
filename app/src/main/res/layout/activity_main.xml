@@ -26,4 +26,11 @@
             app:srcCompat="@drawable/aila_emotion_neutral" />
 
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnREcognizer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onImageFromCameraClick"
+        android:text="REcognizer Face" />
 </FrameLayout>
